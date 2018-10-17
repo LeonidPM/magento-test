@@ -1,0 +1,52 @@
+<?php
+
+/**
+ * @var \LM\Tasks\Block\Display $block
+ */
+
+?>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Список задач</title>
+</head>
+<body>
+<h2>Список задач</h2>
+
+
+    <div>
+        <form action="<?php echo $this->getUrl('lmtasks/index/lists') ?>" method="post">
+            <input type="hidden" name="form_key" value="<?php echo $block->getFormKey() ?>"/>
+            <?php
+            if ($block->getPostCollection()) {
+                foreach ($block->getPostCollection() as $key => $post) {
+                    ?>
+
+                    <input type="checkbox" name="t_list[]"
+                           value="<?= $post->getId() ?>"/><?= $post->getTask_body() ?><br>
+                <?php } ?>
+                <input type="submit" name="delete_task" value="Удалить задачу">
+            <?php } else {
+                echo 'Список задач пуст';
+            }
+
+            ?>
+
+        </form>
+    </div>
+
+
+
+<div>
+    <form action="<?php echo $this->getUrl('lmtasks/index/lists') ?>" method="post">
+        <input type="hidden" name="form_key" value="<?php echo $block->getFormKey() ?>"/>
+        <input type="text" name="task">
+        <input type="submit" name="add_task" value="Добавить задачу">
+    </form>
+</div>
+
+</body>
+</html>

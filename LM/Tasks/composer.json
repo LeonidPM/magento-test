@@ -1,0 +1,22 @@
+{
+  "name": "LM/Tasks",
+  "description": "LM_Tasks",
+  "license": [
+    "OSL-3.0"
+  ],
+  "type": "magento2-module",
+  "version": "0.0.1",
+  "authors": [
+    {
+      "name": "Leonid Mostovoy",
+      "email": "leurika#yandex.ru",
+      "role": "Developer"
+    }
+  ],
+  "autoload": {
+    "files": [ "registration.php" ],
+    "psr-4": {
+      "LM\\Tasks\\": ""
+    }
+  }
+}
